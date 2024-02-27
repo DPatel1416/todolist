@@ -5,8 +5,10 @@ import { v4 as uuidv4 } from "uuid";
 import { EditTodoForm } from "./EditTodoForm";
 
 export const TodoWrapper = () => {
+  // State to store the list of todos
   const [todos, setTodos] = useState([]);
 
+  // Function to add a new todo
   const addTodo = (todo) => {
     setTodos([
       ...todos,
@@ -14,8 +16,10 @@ export const TodoWrapper = () => {
     ]);
   }
 
+  // Function to delete a todo
   const deleteTodo = (id) => setTodos(todos.filter((todo) => todo.id !== id));
 
+  // Function to toggle the completion status of a todo
   const toggleComplete = (id) => {
     setTodos(
       todos.map((todo) =>
@@ -24,6 +28,7 @@ export const TodoWrapper = () => {
     );
   }
 
+  // Function to toggle the editing status of a todo
   const editTodo = (id) => {
     setTodos(
       todos.map((todo) =>
@@ -32,6 +37,7 @@ export const TodoWrapper = () => {
     );
   }
 
+  // Function to edit the task of a todo
   const editTask = (task, id) => {
     setTodos(
       todos.map((todo) =>
@@ -43,11 +49,12 @@ export const TodoWrapper = () => {
   return (
     <div className="TodoWrapper">
       <h1>Get Things Done !</h1>
+      {/* Form component to add new todos */}
       <TodoForm addTodo={addTodo} />
-      {/* display todos */}
+      {/* Display todos */}
       {todos.map((todo) =>
         todo.isEditing ? (
-          <EditTodoForm editTodo={editTask} task={todo} />
+          <EditTodoForm editTodo={editTask} task={todo} key={todo.id} />
         ) : (
           <Todo
             key={todo.id}
