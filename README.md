@@ -7,11 +7,6 @@ It allows users to add, delete, edit, and mark tasks as completed.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Table of Contents
-
-- [Installation](#installation)
-- [Usage](#usage)
-
 ## Installation
 
 1. Clone the repository:
